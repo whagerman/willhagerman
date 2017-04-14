@@ -1,36 +1,53 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-    <head>
-        <title>Guillaume Hâgèrhomme</title>
-        <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    </head>
+<head>
+<style>
+p {
+  text-align: center;
+  font-size: 60px;
+  color: white;
+}
+ body {
+     background: black;
+    }
+</style>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("May 10, 2017 00:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+    // Get todays date and time
+    var now = new Date().getTime();
     
-    <style>
-        h1 {font-family: 'Lobster', cursive;font-size: 50px;color:white;} 
-        body {background: black;} 
-        .center {text-align: center;}
-        h2 {font-family: 'Lobster', cursive; font-size: 20px;color:white;} 
-        img {margin: -20px 0 0 0;}
-        h3 {text-align: center; margin: 30px 0 0 0;}
-        a:link {text-decoration: none;color: none;} a:visited {text-decoration: none;color:none;}a:hover {text-decoration: none;color:none;}a:active {text-decoration: none;color:none;}
-        @media(max-width: 500px) {
-            h1 {font-size: 50px;}
-        }
-    </style>
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
     
-    <body>
-        <div class="center"><h1>Bonne journée! <br> ¡Que tenga buen día! <br> Have a great day! </h1>
-       <img src="https://scontent-dft4-2.cdninstagram.com/t51.2885-15/e35/16584027_1757231277926294_507102923168153600_n.jpg"><h2>p.s. l'internet foncionne</h2></div>
-    </body>
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
-    <footer>
-        <h3><a href="https://twitter.com/willhagerman" class="twitter-follow-button" data-show-count="false">Follow @willhagerman</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script><style>.ig-b- { display: inline-block; }
-.ig-b- img { visibility: hidden; }
-.ig-b-:hover { background-position: 0 -60px; } .ig-b-:active { background-position: 0 -120px; }
-.ig-b-v-24 { width: 137px; height: 24px; background: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24.png) no-repeat 0 0; }
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-.ig-b-v-24 { background-image: url(//badges.instagram.com/static/images/ig-badge-view-sprite-24@2x.png); background-size: 160px 178px; } }</style><br><br>
-<a href="https://www.instagram.com/willhagerman/?ref=badge" class="ig-b- ig-b-v-24"><img src="//badges.instagram.com/static/images/ig-badge-view-24.png" alt="Instagram" /></a></h3>
-    </footer>
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+    
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+
+</body>
 </html>
+
 
