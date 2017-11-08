@@ -280,9 +280,7 @@ Your browser does not support the audio element.
 </body>
 
 <script>
-  var x = document.getElementById("myAudio").autoplay;
-  
-  var lang = navigator.language || navigator.userLanguage;
-  console.log(lang);
+  var lang = window.navigator.language || window.navigator.userLanguage;
+  alert(lang);
 </script>
 </html>
